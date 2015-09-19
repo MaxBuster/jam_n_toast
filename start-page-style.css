@@ -1,0 +1,84 @@
+/* --- Font for Page ---  */
+
+body {
+	font-family: 'Lato', serif;
+}
+
+
+/* --- Style for top right | Menu bar ---- */
+#top_bar{
+	background-color: orange;
+	list-style: none;
+	display: inline-block;
+	position:fixed;
+	top:20px;
+	right:0;
+	width:200px;
+	height:	20px;
+}
+
+#top_bar li{
+	display: inline-block;
+	padding-left: 10px;
+}
+
+/* --- Style for top left | Search Bar --- */
+
+input{
+	width: 300px;
+	position: fixed;
+	margin-left: 20px;
+	top: 20px;
+	left: 0;
+}
+
+/* --- Style for Main --- */
+#main{
+	font-size:20px;
+	margin-top: 90px;
+	margin-left: 20px;
+}
+
+button{
+	width: 475px;
+	height: 40px;
+}
+
+/* --- Style for bottom left | Travel info ---- */
+
+#trip_info{
+	background-color: blue;
+	list-style: none;
+	color: white;	
+	width: 400px;
+	height: 150px;
+	position: absolute;
+	bottom: 10px;
+	padding-left: 20px;
+}
+
+#price{
+	font-size: 70px;
+}
+
+#dest_info li{
+	font-size: 20px;
+}
+
+/* --- Style for bottom right | weather ---- */
+
+#weather_info{
+	background-color: green;
+	list-style: none;
+	color:white;
+	width: 250px;
+	height: 60px;
+	font-size: 20px;
+	position:absolute;
+	bottom: 10px;
+	right: 0;
+	text-align: right;
+	padding-right: 20px;
+}
+
+
