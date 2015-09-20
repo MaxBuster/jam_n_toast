@@ -1,5 +1,5 @@
 var pattern = /amazon/;
 if (pattern.test(window.location.href)){
-	//window.open('', '_blank');
+	// localStorage.setItem('buying', 'true');
 	chrome.runtime.sendMessage({new: true}, function(response) {});
 }

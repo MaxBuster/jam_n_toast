@@ -1,24 +1,31 @@
-var continents = [2, 4, 6, 8, 13, 19, 21, 291958];
-var randomNumber = Math.round(7*Math.random());
-var continentCode = continents[randomNumber];
+var continentCode = getContinent(7); // This will be passed in by the html 2, 5, or 7
 
 var city;
 var numTries = 0;
 var fail = false;
-while ((city = getRandomLevelLower(continentCode)) < 1 && numTries < 6) {
+while ((city = getRandomCity(continentCode)) < 1 && numTries < 6) {
 	numTries++;
 	if (numTries > 4) {
 		fail = true;
 	}
 }
-if (!fail) {
+
+if (fail) {
+	var backupCities = [479223, 1190272, 6677187, 297747, 3556359];
+	randomNumber = Math.round(5*Math.random());
+	backupCity = backupCities[randomNumber];
+
+	cityInfo = getCityInfo(backupCity);
+	hotelInfo = getHotelInfo(backupCity);
+	attractionInfo = getAttractionInfo(backupCity);
+} else {
 	cityInfo = getCityInfo(city);
 	hotelInfo = getHotelInfo(city);
 	attractionInfo = getAttractionInfo(city);
 }
-// Get city info, hotel info, attractions
+// Send these to the html page
 
-function getRandomLevelLower(currentCode) {
+function getRandomCity(currentCode) {
 	var levelLower = 0;
 	var apiString = getAPIString(currentCode, "/geos"); // Continent level
 	$.ajax({
@@ -32,7 +39,7 @@ function getRandomLevelLower(currentCode) {
 		$.each( data.data, function( key, val ) {
 			if (counter == randomNumber) {
 				if (val.address_obj.city == null) {
-	    			levelLower = getRandomLevelLower(val.location_id); 
+	    			levelLower = getRandomCity(val.location_id); 
 		    	} else {
 		    		levelLower = val.location_id;
 		    	}
@@ -122,7 +129,6 @@ function getAttractionInfo(cityID) {
 	  		var tempAttractions = [];
 	  		tempAttractions["rating"] = val.rating;
 	  		tempAttractions["name"] = val.name;
-	  		alert(val.name);
 	  		tempAttractions["num_reviews"] = val.num_reviews;
 	  		tempAttractions["web_url"] = val.web_url;
 	  		attractionsArray.push(tempAttractions);
@@ -139,4 +145,10 @@ function getAttractionInfo(cityID) {
 
 function getAPIString(locationID, type) {
 	return "http://api.tripadvisor.com/api/partner/2.0/location/" + locationID + type + "?key=8B89F4BDB7F64B79A1533D6EA207C3D5";
+}
+
+function getContinent(priceRange) {
+	var randomNum = Math.round(priceRange*Math.random());
+	var continents = [19, 291958, 13, 8, 6, 21, 2, 4];
+	return continents[randomNum];
 }
