@@ -35,7 +35,7 @@ body {
   	border-width: 2px;
   	background-color: transparent;
   	text-align: center;
-  	font-size: 15px;
+  	font-size: 20px;
   	outline: none;
   	text-decoration: none;
   	border-top: none;
@@ -44,6 +44,11 @@ body {
 .list_header{
 	background-color: #F2F2F2 !important;
 }*/
+
+.more_info a{
+	color:#696969;
+	background-color: #BEBEBE;
+}
 
 /* --- Style for top right | Menu bar ---- */
 #top_bar{

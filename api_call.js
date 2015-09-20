@@ -69,8 +69,8 @@ function getCityInfo(cityID) {
 	  success: function(data) {
 	  	var locationArray = [];
 	  	document.getElementById("location_string").innerHTML = data.location_string;
-	  	document.getElementById("hotel_li").innerHTML += "<a href=\""+data.see_all_hotels+"\">See All Hotels</a>";
-	  	document.getElementById("attraction_li").innerHTML += "<a href=\""+data.see_all_attractions+"\">See All Attractions</a>";
+	  	document.getElementById("hotel_li").innerHTML += "<a href=\""+data.see_all_hotels+"\" target =\"_blank\">See All Hotels</a>";
+	  	document.getElementById("attraction_li").innerHTML += "<a href=\""+data.see_all_attractions+"\" target =\"_blank\">See All Attractions</a>";
 	 //  	locationArray["location_string"] = data.location_string;
 		// document.getElementById("location_string").innerHTML = data.location_string;
 	 //  	locationArray["latitude"] = data.latitude;
@@ -120,11 +120,11 @@ function getHotelInfo(cityID) {
 	  success: function(data) {
 	  	var hotelArray = [];
 
-	  	document.getElementById("hotel_ul1").innerHTML += data.data[0].name+ "\t";
-	  	document.getElementById("hotel_ul2").innerHTML += data.data[0].rating + " out of ";
-	  	document.getElementById("hotel_ul3").innerHTML += data.data[0].num_reviews + " reviews\n";
+	  	document.getElementById("hotel_ul1").innerHTML += data.data[0].name;
+	  	document.getElementById("hotel_ul2").innerHTML += data.data[0].rating + " Stars";
+	  	document.getElementById("hotel_ul3").innerHTML += data.data[0].num_reviews + " Reviews";
 	  	document.getElementById("hotel_ul4").innerHTML += data.data[0].price_level +"\t";
-	  	document.getElementById("hotel_ul5").innerHTML += "<a href=\""+data.data[0].web_url+"\">See Hotel</a>";
+	  	document.getElementById("hotel_ul5").innerHTML += "<a href=\""+data.data[0].web_url+"\"target =\"_blank\" >See Hotel</a>";
 	  	// $.each(data.data, function(key, val) {
 	  	// 	var tempHotel = [];
 	  	// 	tempHotel["rating"] = val.rating;
@@ -155,8 +155,8 @@ function getAttractionInfo(cityID) {
 
 	  	document.getElementById("attraction_ul1").innerHTML = data.data[0].name;
 	  	document.getElementById("attraction_ul2").innerHTML = data.data[0].rating + " Stars";
-	  	document.getElementById("attraction_ul3").innerHTML = data.data[0].num_reviews + "Reviews";
-	  	document.getElementById("attraction_ul4").innerHTML = "<a href=\""+data.data[0].web_url+"\">See Site</a>";
+	  	document.getElementById("attraction_ul3").innerHTML = data.data[0].num_reviews + " Reviews";
+	  	document.getElementById("attraction_ul4").innerHTML = "<a href=\""+data.data[0].web_url+"\" target = \"_blank\">See Site</a>";
 	  	// $.each(data.data, function(key, val) {
 	  	// 	var tempAttractions = [];
 	  	// 	tempAttractions["rating"] = val.rating;
