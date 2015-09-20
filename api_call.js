@@ -169,6 +169,15 @@ function getAPIString(locationID, type) {
 
 function getContinent(priceRange) {
 	var randomNum = Math.round(priceRange*Math.random());
+	var numDollas = "";
+	if (randomNum <= 2) {
+		numDollas = "$";
+	} else if (randomNum <= 5) {
+		numDollas = "$$";
+	} else {
+		numDollas = "$$$";
+	}
+	document.getElementById("price").innerHTML = numDollas;
 	var continents = [19, 291958, 13, 8, 6, 21, 2, 4];
 	return continents[randomNum];
 }
