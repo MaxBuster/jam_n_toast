@@ -12,7 +12,38 @@ body {
 	height:100%;
 	background-repeat: no-repeat;
 }
-```
+/* --- Learn More --- */
+.ulInfo{
+	font-size:10px !important;
+	display:inline-block;
+	margin-right: 5px;
+
+}
+
+#hotel_ul5 #attraction_ul4{
+
+}
+.more_info{
+	display:none;
+}
+.more_info li{
+	list-style:none;
+	width: 430px;
+  	padding: 8px;
+  	color: #fff;
+  	border: 1px solid #fff;
+  	border-width: 2px;
+  	background-color: transparent;
+  	text-align: center;
+  	font-size: 15px;
+  	outline: none;
+  	text-decoration: none;
+  	border-top: none;
+}
+/*
+.list_header{
+	background-color: #F2F2F2 !important;
+}*/
 
 /* --- Style for top right | Menu bar ---- */
 #top_bar{
@@ -20,7 +51,7 @@ body {
 	list-style: none;
 	color:white;
 	position:fixed;
-	margin-left: 20px;
+	margin-left: 1080px !important;
 }
 
 #top_bar .list{
@@ -54,7 +85,7 @@ input{
     margin: 15px;
     height: 25px;
 	position: fixed;
-	margin-left: 20px;
+	margin-left: 600px;
 	top: 5px;
 	left: 10px;
 	background-image: url(search-icon.png);
@@ -66,12 +97,11 @@ input{
 /* --- Style for Main --- */
 #main{
 	font-size:20px;
-	margin-top: 90px;
 	margin-left: 20px;
 	color:white;
 }
 
-button{
+.learn_more{
   display: inline-block;
   width: 450px;
   padding: 8px;
@@ -85,8 +115,8 @@ button{
   text-decoration: none;
 }
 
-button:hover,
-button:active {
+.learn_more:hover,
+.learn_more:active {
   background-color: #fff;
   color: #000;
 }

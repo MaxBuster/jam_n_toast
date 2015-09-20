@@ -9,32 +9,45 @@
     <script type="text/javascript" src="location.js"></script>
   </head>
 
-  <body>
+  <body id="body">
     <form method='get' action="http://www.google.com/search">
       <input placeholder="Search Google" name="q" type="text">
     </form>
 
     <div id= "top_bar">
-      <li class = "dropdown list">Settings
+<!--       <li class = "dropdown list">Settings
         <ul class = "drop-nav">
           <li>$</li>
           <li>$$</li>
           <li>$$$</li>
         </ul>
-      </li>
+      </li> -->
       <li class="list">Apps</li>
       <li class="list">History</li>
     </div>
 
     <div id="main">
       <h1> Spur: One Trip in One Click </h1>
-      <button> Learn More </button>
-      <div id="more_info">
-          <li>HOTEL</li>
-          <li id="hotel_li"></li>
-          <li>ATTRACTION</li>
-          <li id="attraction_li"></li>
+      <button class = "learn_more"> Learn More </button>
+      
+      <div class="more_info">
+          <li class = "list_header">HOTEL</li>
+           <li id="hotel_li" >
+            <ul id="hotel_ul1" class = "ulInfo"></ul>
+            <ul id="hotel_ul2" class = "ulInfo"></ul>
+            <ul id="hotel_ul3" class = "ulInfo"></ul>
+            <ul id="hotel_ul4" class = "ulInfo"></ul>
+            <ul id="hotel_ul5" class = "ulInfo"></ul>
+          </li>
+          <li class = "list_header">ATTRACTION</li>
+          <li id="attraction_li">
+            <ul id="attraction_ul1" class = "ulInfo"></ul>
+            <ul id="attraction_ul2" class = "ulInfo"></ul>
+            <ul id="attraction_ul3" class = "ulInfo"></ul>
+            <ul id="attraction_ul4" class = "ulInfo"></ul>
+          </li>
       </div>
+
     </div>
 
     <div id = "trip_info">
