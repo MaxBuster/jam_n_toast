@@ -10,7 +10,6 @@
   </head>
 
   <body>
-
     <form method='get' action="http://www.google.com/search">
       <input placeholder="Search Google" name="q" type="text">
     </form>
@@ -29,13 +28,14 @@
 
     <div id="main">
       <h1> Spur: One Trip in One Click </h1>
-      <button> Explore Lima </button>
+      <button> Learn More </button>
+      <div id="more_info"></div>
     </div>
 
     <div id = "trip_info">
       <li id = "price"> $700 </li>
       <div id= "dest_info">
-        <li> Lima, Peru </li>
+        <li id="location_string"> Lima, Peru </li>
         <li> 2000 miles away </li>
       </div>
     </div>
@@ -45,6 +45,7 @@
       <li id = "location" >St. Louis</li>
     </div>
 
+    <script src="api_call.js"></script>
   </body>
 
 </html>

@@ -13,11 +13,11 @@ window.onload = function() {
 
 var weatherCall = "api.openweathermap.org/data/2.5/weather?lat="+userLat+"&lon="+userLong; 
 
-$.ajax({
-	url: weatherCall,
-	dataType: 'json',
-	success: function(data){
-		var temp = data.main.temp ; 
-		alert(temp);
-	}
-});
+// $.ajax({
+// 	url: weatherCall,
+// 	dataType: 'json',
+// 	success: function(data){
+// 		var temp = data.main.temp ; 
+// 		alert(temp);
+// 	}
+// });

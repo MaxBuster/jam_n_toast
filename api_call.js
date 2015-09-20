@@ -10,6 +10,10 @@ while ((city = getRandomCity(continentCode)) < 1 && numTries < 6) {
 	}
 }
 
+var cityInfo;
+var hotelInfo;
+var attractionInfo;
+
 if (fail) {
 	var backupCities = [479223, 1190272, 6677187, 297747, 3556359];
 	randomNumber = Math.round(5*Math.random());
@@ -23,7 +27,6 @@ if (fail) {
 	hotelInfo = getHotelInfo(city);
 	attractionInfo = getAttractionInfo(city);
 }
-// Send these to the html page
 
 function getRandomCity(currentCode) {
 	var levelLower = 0;
@@ -65,6 +68,7 @@ function getCityInfo(cityID) {
 	  	var locationArray = [];
 
 	  	locationArray["location_string"] = data.location_string;
+		document.getElementById("location_string").innerHTML = data.location_string;
 	  	locationArray["latitude"] = data.latitude;
 	  	locationArray["longitude"] = data.longitude;
 	  	locationArray["web_url"] = data.web_url;
