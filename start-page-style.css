@@ -2,34 +2,65 @@
 
 body {
 	font-family: 'Lato', serif;
+	background-image: url(lima.jpg);
+	background-size: 100% , 100%;
+	position:absolute;
+	/*z-index:0;*/
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background-repeat: no-repeat;
 }
-
+```
 
 /* --- Style for top right | Menu bar ---- */
 #top_bar{
-	background-color: orange;
+	/*background-color: orange;*/
 	list-style: none;
-	display: inline-block;
+	color:white;
 	position:fixed;
-	top:20px;
-	right:0;
-	width:200px;
-	height:	20px;
+	margin-left: 20px;
 }
 
-#top_bar li{
+#top_bar .list{
+	margin-top:10px;
 	display: inline-block;
 	padding-left: 10px;
+	float:right;
+	color:white;
+	margin-right: 20px;
+}
+
+.dropdown{
+	position: relative;
+}
+.drop-nav{
+	position: absolute;
+	display:none;
+}
+.drop-nav li{
+	border-bottom: 1px solid rgba(255,255,255, .2);
+}
+.dropdown:hover > .drop-nav{
+	display:block;
 }
 
 /* --- Style for top left | Search Bar --- */
 
 input{
-	width: 300px;
+	width: 450px;
+    padding-left: 30px;
+    margin: 15px;
+    height: 25px;
 	position: fixed;
 	margin-left: 20px;
-	top: 20px;
-	left: 0;
+	top: 5px;
+	left: 10px;
+	background-image: url(search-icon.png);
+	background-repeat: no-repeat;
+	background-position: 5px;
+	background-size: 15px 15px;
 }
 
 /* --- Style for Main --- */
@@ -37,17 +68,33 @@ input{
 	font-size:20px;
 	margin-top: 90px;
 	margin-left: 20px;
+	color:white;
 }
 
 button{
-	width: 475px;
-	height: 40px;
+  display: inline-block;
+  width: 450px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  border-width: 2px;
+  background-color: transparent;
+  text-align: center;
+  font-size: 20px;
+  outline: none;
+  text-decoration: none;
+}
+
+button:hover,
+button:active {
+  background-color: #fff;
+  color: #000;
 }
 
 /* --- Style for bottom left | Travel info ---- */
 
 #trip_info{
-	background-color: blue;
+	/*background-color: blue;*/
 	list-style: none;
 	color: white;	
 	width: 400px;
@@ -68,7 +115,7 @@ button{
 /* --- Style for bottom right | weather ---- */
 
 #weather_info{
-	background-color: green;
+	/*background-color: green;*/
 	list-style: none;
 	color:white;
 	width: 250px;

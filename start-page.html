@@ -4,17 +4,27 @@
     <title>New Tab</title>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
     <link href='start-page-style.css' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="tab.js"></script>
+    <script type="text/javascript" src="location.js"></script>
   </head>
 
   <body>
 
-    <form>
-      <input type="text">
+    <form method='get' action="http://www.google.com/search">
+      <input placeholder="Search Google" name="q" type="text">
     </form>
 
     <div id= "top_bar">
-      <li>History</li>
-      <li>Apps</li>
+      <li class = "dropdown list">Settings
+        <ul class = "drop-nav">
+          <li>$</li>
+          <li>$$</li>
+          <li>$$$</li>
+        </ul>
+      </li>
+      <li class="list">Apps</li>
+      <li class="list">History</li>
     </div>
 
     <div id="main">
@@ -31,12 +41,10 @@
     </div>
 
     <div id = "weather_info">
-      <li>17 degrees</li>
-      <li>Chicago</li>
+      <li id = "weather" >17 degrees</li>
+      <li id = "location" >St. Louis</li>
     </div>
 
   </body>
-
-  <script src="tab.js"></script>
 
 </html>
