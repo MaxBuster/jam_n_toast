@@ -22,12 +22,12 @@ if (fail) {
 	cityInfo = getCityInfo(city);
 	hotelInfo = getHotelInfo(city);
 	attractionInfo = getAttractionInfo(city);
-	//photoInfo = getPhotoInfo(city);
+	photoInfo = getPhotoInfo(city);
 } else {
 	cityInfo = getCityInfo(city);
 	hotelInfo = getHotelInfo(city);
 	attractionInfo = getAttractionInfo(city);
-	//photoInfo = getPhotoInfo(city);
+	photoInfo = getPhotoInfo(city);
 }
 
 function getRandomCity(currentCode) {
@@ -211,25 +211,10 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 }
 
 function getPhotoInfo(city){
-	var apiString = getAPIString(city,"/photos");
-	$.ajax({
-	  url: apiString,
-	  dataType: 'json',
-	  async: false,
-	  success: function(data) {
-
-	  	var imageUrl = data.data[0].images.large.url;
-	  	$('#body').css("background-image", "url("+imageUrl+")"); 
-
-	  },
-	  failure: function(data) {
-	  	alert("fail");
-	  	return null;
-	  }
-	});
-
+	var randomNum = Math.round(8*Math.random());
+	$('#body').css("background-image", "url(background-"+randomNum+".jpg)"); 
 }
 
 $( ".learn_more" ).click(function() {
-  	$('.more_info').show();
+  	$('.more_info').toggle(200);
 });
