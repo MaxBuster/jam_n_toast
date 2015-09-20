@@ -17,15 +17,17 @@ var attractionInfo;
 if (fail) {
 	var backupCities = [479223, 1190272, 6677187, 297747, 3556359];
 	randomNumber = Math.round(5*Math.random());
-	backupCity = backupCities[randomNumber];
+	city = backupCities[randomNumber];
 
-	cityInfo = getCityInfo(backupCity);
-	hotelInfo = getHotelInfo(backupCity);
-	attractionInfo = getAttractionInfo(backupCity);
+	cityInfo = getCityInfo(city);
+	hotelInfo = getHotelInfo(city);
+	attractionInfo = getAttractionInfo(city);
+	//photoInfo = getPhotoInfo(city);
 } else {
 	cityInfo = getCityInfo(city);
 	hotelInfo = getHotelInfo(city);
 	attractionInfo = getAttractionInfo(city);
+	//photoInfo = getPhotoInfo(city);
 }
 
 function getRandomCity(currentCode) {
@@ -90,6 +92,16 @@ function getCityInfo(cityID) {
 
 		document.getElementById("distance").innerHTML = Math.round(distance(-90.19, 38.62, data.latitude, data.longitude, "K")) + " km";
 
+	  	var activityArray = [];
+	  	$.each(data.category_counts, function(key, val){
+	  		var tempArray = [];
+	  		$.each(val, function(ke, va) {
+	  			tempArray[ke] = va;
+	  		});
+	  		activityArray[key] = tempArray;
+	  	});
+
+	  	locationArray["activities"] = activityArray;
 	  	return locationArray;
 	  },
 	  failure: function(data) {
@@ -108,11 +120,11 @@ function getHotelInfo(cityID) {
 	  success: function(data) {
 	  	var hotelArray = [];
 
-	  	document.getElementById("hotel_li").innerHTML += data.data[0].name+ "\t";
-	  	document.getElementById("hotel_li").innerHTML += data.data[0].rating + " out of ";
-	  	document.getElementById("hotel_li").innerHTML += data.data[0].num_reviews + " reviews\n";
-	  	document.getElementById("hotel_li").innerHTML += data.data[0].price_level +"\t";
-	  	document.getElementById("hotel_li").innerHTML += "<a href=\""+data.data[0].web_url+"\">See Hotel</a>";
+	  	document.getElementById("hotel_ul1").innerHTML += data.data[0].name+ "\t";
+	  	document.getElementById("hotel_ul2").innerHTML += data.data[0].rating + " out of ";
+	  	document.getElementById("hotel_ul3").innerHTML += data.data[0].num_reviews + " reviews\n";
+	  	document.getElementById("hotel_ul4").innerHTML += data.data[0].price_level +"\t";
+	  	document.getElementById("hotel_ul5").innerHTML += "<a href=\""+data.data[0].web_url+"\">See Hotel</a>";
 	  	// $.each(data.data, function(key, val) {
 	  	// 	var tempHotel = [];
 	  	// 	tempHotel["rating"] = val.rating;
@@ -141,10 +153,10 @@ function getAttractionInfo(cityID) {
 	  success: function(data) {
 	  	var attractionsArray = [];
 
-	  	document.getElementById("attraction_li").innerHTML += data.data[0].name+ "\t";
-	  	document.getElementById("attraction_li").innerHTML += data.data[0].rating + " out of ";
-	  	document.getElementById("attraction_li").innerHTML += data.data[0].num_reviews + " reviews\n";
-	  	document.getElementById("attraction_li").innerHTML += "<a href=\""+data.data[0].web_url+"\">See Site</a>";
+	  	document.getElementById("attraction_ul1").innerHTML = data.data[0].name;
+	  	document.getElementById("attraction_ul2").innerHTML = data.data[0].rating + " Stars";
+	  	document.getElementById("attraction_ul3").innerHTML = data.data[0].num_reviews + "Reviews";
+	  	document.getElementById("attraction_ul4").innerHTML = "<a href=\""+data.data[0].web_url+"\">See Site</a>";
 	  	// $.each(data.data, function(key, val) {
 	  	// 	var tempAttractions = [];
 	  	// 	tempAttractions["rating"] = val.rating;
@@ -197,3 +209,27 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 	if (unit=="N") { dist = dist * 0.8684 }
 	return dist
 }
+
+function getPhotoInfo(city){
+	var apiString = getAPIString(city,"/photos");
+	$.ajax({
+	  url: apiString,
+	  dataType: 'json',
+	  async: false,
+	  success: function(data) {
+
+	  	var imageUrl = data.data[0].images.large.url;
+	  	$('#body').css("background-image", "url("+imageUrl+")"); 
+
+	  },
+	  failure: function(data) {
+	  	alert("fail");
+	  	return null;
+	  }
+	});
+
+}
+
+$( ".learn_more" ).click(function() {
+  	$('.more_info').show();
+});
