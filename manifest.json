@@ -2,6 +2,7 @@
   "name": "URL Redirect",
   "version": "0.2",
   "description": "Checks URL and redirects as required.",
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js;",
   "background": { 
      "page":"bg.html"
      },
